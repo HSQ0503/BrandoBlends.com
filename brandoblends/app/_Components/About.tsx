@@ -1,27 +1,69 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 export const AboutSection = () => {
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-12 lg:px-24">
-      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center">
-        <div className="w-full md:w-1/2 lg:w-2/3 md:pr-10 mt-8 md:mt-0">
-          <h2 className="text-5xl font-bold mb-6 merriweather">About Brando Blends</h2>
-          <p className="text-lg leading-relaxed text-gray-300 mb-6">
-            Brando is a passionate barber with over a decade of experience in the industry. Known for his precision,
-            attention to detail, and ability to create styles that bring out confidence, Brando has built a loyal
-            clientele that trusts him for his expertise. At Brando Blends, he combines his love for the craft with
-            a commitment to providing each client with a tailored, professional experience.
+    <section className="relative py-16 px-6 md:px-12 lg:px-24 bg-[#0d0d0d]">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/Images/Bg/blackBG.png"
+          alt="Background Texture"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="opacity-80"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto flex flex-col md:flex-row items-center gap-12">
+        {/* Text Section */}
+        <div className="w-full md:w-1/2 lg:w-1/3">
+          <h2 className="text-4xl font-bold mb-6 merriweather text-white">
+            About Brando Blends
+          </h2>
+          <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+            Brando is an expert barber with a decade of experience, crafting
+            precise and stylish looks for a confident you. Known for exceptional
+            attention to detail, Brando ensures every client leaves feeling
+            their best.
           </p>
-          <p className="text-lg leading-relaxed text-gray-300 mb-6">
-            Whether you&apos;re looking for a clean cut, a stylish fade, or a bold new look, Brando&apos;s skill and dedication
-            will ensure you leave the chair looking your best. Experience style and confidence with every cut at
-            Brando Blends.
-          </p>
-          {/* Gallery Button */}
+
+          {/* Location Information */}
+          <div className="flex items-center mt-6 text-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6 text-white mr-3"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+              />
+            </svg>
+            <a
+              target="_blank"
+              href="https://www.google.com/maps?daddr=28.34641615547212,-81.6660523337053&amp;ll"
+              className="text-gray-300 hover:underline transition duration-300 ease-in-out"
+            >
+              160 Kersey St, Davenport, 33897
+            </a>
+          </div>
+
+          {/* Call to Action */}
           <a
-            href="#gallery"
-            className="inline-flex items-center mt-4 px-6 py-3 bg-[#000080] text-white font-semibold hover:bg-blue-400 transition duration-300"
+            href="/galllery"
+            className="inline-flex items-center px-6 py-3 mt-6 bg-[#000080] text-white font-semibold hover:bg-blue-500 transition duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -41,13 +83,15 @@ export const AboutSection = () => {
           </a>
         </div>
 
-        <div className="w-full md:w-1/2 lg:w-1/3">
-          <div className="relative w-full h-0 pb-[100%]">
+        {/* Image Section */}
+        <div className="w-full md:w-1/2 lg:w-2/3">
+          <div className="relative w-full h-auto">
             <Image
-              src="/Images/BRANDOBLENDS.jpg" 
-              alt="Brando Blends"
-              layout="fill"
-              objectFit="cover"
+              src="/Images/AboutPhoto.jpeg"
+              alt="Brando Blends Cutting Hair"
+              width={750}
+              height={500}
+              layout="intrinsic"
               className="rounded-lg shadow-lg"
             />
           </div>

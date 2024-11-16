@@ -30,7 +30,7 @@ export const TestimonialsSection: React.FC = () => {
       {[...Array(5)].map((_, index) => (
         <svg
           key={index}
-          className={`w-6 h-6 ${index < rating ? "text-yellow-400" : "text-gray-300"}`}
+          className={`w-6 h-6 ${index < rating ? "text-yellow-400" : "text-gray-600"}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -41,14 +41,19 @@ export const TestimonialsSection: React.FC = () => {
   );
 
   return (
-    <section className="bg-white text-black py-16 px-4">
+    <section
+      className="py-16 px-4"
+      style={{
+        background: "linear-gradient(to bottom, #0d0d0d, #1a1a1a)",
+      }}
+    >
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-5xl font-bold mb-4 merriweather ">What Clients Say</h2>
-        <p className="text-gray-700 text-lg mb-12">
+        <h2 className="text-4xl font-bold mb-4 merriweather text-white">What Clients Say</h2>
+        <p className="text-gray-400 text-lg mb-12">
           Real testimonials from trusted clients
         </p>
 
-        <div className="relative bg-gray-100 text-black p-8 rounded-lg shadow-lg">
+        <div className="relative bg-neutral-800 text-white p-8 rounded-lg shadow-lg">
           {/* Stars */}
           {renderStars(testimonials[currentIndex].rating)}
 
@@ -56,27 +61,23 @@ export const TestimonialsSection: React.FC = () => {
           <p className="text-xl italic mb-6">"{testimonials[currentIndex].review}"</p>
 
           {/* Name */}
-          <p className="font-bold text-lg">- {testimonials[currentIndex].name}</p>
+          <p className="font-bold text-lg text-gray-300">- {testimonials[currentIndex].name}</p>
 
           {/* Navigation Buttons */}
           <div className="flex justify-center mt-8 space-x-4">
             <button
               onClick={prevTestimonial}
-              className="p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition"
+              className="p-3 rounded-full bg-neutral-700 hover:bg-neutral-600 transition"
               aria-label="Previous testimonial"
             >
-              <div className="text-white text-2xl">
-                <FaLongArrowAltLeft />
-              </div>
+              <FaLongArrowAltLeft className="text-white text-2xl" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition"
+              className="p-3 rounded-full bg-neutral-700 hover:bg-neutral-600 transition"
               aria-label="Next testimonial"
             >
-              <div className="text-white text-2xl">
-                <FaLongArrowAltRight />
-              </div>
+              <FaLongArrowAltRight className="text-white text-2xl" />
             </button>
           </div>
         </div>

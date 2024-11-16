@@ -32,7 +32,6 @@ export const Navbar = () => {
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <MainLogo />
         <div className="hidden gap-6 lg:flex">
-          <Links />
           <CTAs />
         </div>
         <MobileMenu />
@@ -42,42 +41,8 @@ export const Navbar = () => {
 };
 
 const Logo = ({ color = "white" }: { color?: string }) => {
-  // Temp logo from https://logoipsum.com/
   return (
-    <div className="flex items-center gap-2">
-      <span className="text-2xl font-bold" style={{ color }}>
-        Placeholder
-      </span>
-      <svg
-        width="50"
-        height="39"
-        viewBox="0 0 50 39"
-        fill={color}
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-10"
-      >
-        <path
-          d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-          stopColor={color}
-        ></path>
-        <path
-          d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-          stopColor={color}
-        ></path>
-      </svg>
-    </div>
-  );
-};
-
-const Links = () => {
-  return (
-    <div className="flex items-center gap-6">
-      {LINKS.map((l) => (
-        <NavLink key={l.text} href={l.href}>
-          {l.text}
-        </NavLink>
-      ))}
-    </div>
+    <MainLogo />
   );
 };
 
@@ -231,9 +196,12 @@ const MobileMenu = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="block lg:hidden">
-      <button onClick={() => setOpen(true)} className="block text-3xl">
+      {/* Hamburger Menu Icon */}
+      <button onClick={() => setOpen(true)} className="block text-3xl text-white">
         <FiMenu />
       </button>
+
+      {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.nav
@@ -241,27 +209,35 @@ const MobileMenu = () => {
             animate={{ x: 0 }}
             exit={{ x: "100vw" }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="fixed left-0 top-0 flex h-screen w-full flex-col bg-white"
+            className="fixed left-0 top-0 flex h-screen w-full flex-col bg-neutral-950 text-white"
           >
-            <div className="flex items-center justify-between p-6">
-              <Logo color="black" />
-              <button onClick={() => setOpen(false)}>
+            {/* Header Section */}
+            <div className="flex items-center justify-between p-6 border-b border-neutral-700">
+              <Logo color="white" />
+              <button
+                onClick={() => setOpen(false)}
+                className="text-3xl text-white hover:text-gray-300"
+              >
                 <FiX />
               </button>
             </div>
-            <div className="h-screen overflow-y-scroll bg-neutral-100 p-6">
-              {LINKS.map((l) => (
-                <MobileMenuLink
-                  key={l.text}
-                  href={l.href}
-                  setMenuOpen={setOpen}
-                >
-                  {l.text}
-                </MobileMenuLink>
-              ))}
-            </div>
-            <div className="flex justify-end bg-neutral-950 p-6">
-              <CTAs />
+
+            {/* Menu Content */}
+            <div className="flex flex-col items-center justify-center gap-8 flex-grow text-lg font-medium">
+              <a
+                href="/gallery"
+                className="px-4 py-2 text-white border-2 border-white rounded-md hover:bg-white hover:text-black transition"
+                onClick={() => setOpen(false)}
+              >
+                Gallery
+              </a>
+              <a
+                href="/appointment"
+                className="px-4 py-2 bg-[#000080] text-white border-2 border-[#000080] rounded-md hover:bg-[#000000] hover:border-[#000000] transition"
+                onClick={() => setOpen(false)}
+              >
+                Book Appointment
+              </a>
             </div>
           </motion.nav>
         )}
@@ -269,17 +245,6 @@ const MobileMenu = () => {
     </div>
   );
 };
-
-const LINKS = [
-  {
-    text: "About",
-    href: "/About",
-  },
-  {
-    text: "Services",
-    href: "/Services",
-  },
-];
 
 export default function Component() {
   return <Navbar />;
