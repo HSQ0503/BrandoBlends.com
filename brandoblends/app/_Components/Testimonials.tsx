@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Testimonial = {
   name: string;
@@ -22,8 +22,13 @@ export const TestimonialsSection: React.FC = () => {
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const nextTestimonial = () => setCurrentIndex((currentIndex + 1) % testimonials.length);
-  const prevTestimonial = () => setCurrentIndex((currentIndex - 1 + testimonials.length) % testimonials.length);
+  // Automatically move to the next testimonial every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((currentIndex + 1) % testimonials.length);
+    }, 5000); // 5 seconds
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, [currentIndex, testimonials.length]);
 
   const renderStars = (rating: number) => (
     <div className="flex justify-center mb-4">
@@ -49,37 +54,27 @@ export const TestimonialsSection: React.FC = () => {
     >
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-4 merriweather text-white">What Clients Say</h2>
-        <p className="text-gray-400 text-lg mb-12">
-          Real testimonials from trusted clients
-        </p>
+        <p className="text-gray-400 text-lg mb-12">Real testimonials from trusted clients</p>
 
-        <div className="relative bg-neutral-800 text-white p-8 rounded-lg shadow-lg">
-          {/* Stars */}
-          {renderStars(testimonials[currentIndex].rating)}
-
-          {/* Review */}
-          <p className="text-xl italic mb-6">&quot;{testimonials[currentIndex].review}&quot;</p>
-
-          {/* Name */}
-          <p className="font-bold text-lg text-gray-300">- {testimonials[currentIndex].name}</p>
-
-          {/* Navigation Buttons */}
-          <div className="flex justify-center mt-8 space-x-4">
-            <button
-              onClick={prevTestimonial}
-              className="p-3 rounded-full bg-neutral-700 hover:bg-neutral-600 transition"
-              aria-label="Previous testimonial"
+        <div className="relative bg-neutral-800 text-white p-8 rounded-lg shadow-lg overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <FaLongArrowAltLeft className="text-white text-2xl" />
-            </button>
-            <button
-              onClick={nextTestimonial}
-              className="p-3 rounded-full bg-neutral-700 hover:bg-neutral-600 transition"
-              aria-label="Next testimonial"
-            >
-              <FaLongArrowAltRight className="text-white text-2xl" />
-            </button>
-          </div>
+              {/* Stars */}
+              {renderStars(testimonials[currentIndex].rating)}
+
+              {/* Review */}
+              <p className="text-xl italic mb-6">&quot;{testimonials[currentIndex].review}&quot;</p>
+
+              {/* Name */}
+              <p className="font-bold text-lg text-gray-300">- {testimonials[currentIndex].name}</p>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>

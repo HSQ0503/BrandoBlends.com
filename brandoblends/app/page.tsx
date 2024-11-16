@@ -10,7 +10,7 @@ const page = () => {
       <div>
         <HeroSection />
       </div>
-      <div>
+      <div id="about">
         <AboutSection />
       </div>
       <div>

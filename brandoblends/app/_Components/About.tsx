@@ -62,7 +62,7 @@ export const AboutSection = () => {
 
           {/* Call to Action */}
           <a
-            href="/galllery"
+            href="/gallery"
             className="inline-flex items-center px-6 py-3 mt-6 bg-[#000080] text-white font-semibold hover:bg-blue-500 transition duration-300"
           >
             <svg

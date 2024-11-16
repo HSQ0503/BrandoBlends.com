@@ -9,6 +9,7 @@ import {
   motion,
 } from "framer-motion";
 import MainLogo from "./Logo";
+import Link from "next/link";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -41,7 +42,7 @@ export const Navbar = () => {
 
 const CTAs = () => {
   return (
-    <div className="flex items-center gap-3">
+    <Link href='/gallery' className="flex items-center gap-3">
       <button className="flex items-center gap-2 border-2 border-white px-4 py-2 font-semibold text-white transition-colors hover:bg-white hover:text-black">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +63,7 @@ const CTAs = () => {
       <button className=" border-2 border-[#000080] bg-[#000080] px-4 py-2 font-semibold text-white transition-colors hover:border-[#000000] hover:bg-[#000000] hover:text-white">
         Book Appointment
       </button>
-    </div>
+    </Link>
   );
 };
 

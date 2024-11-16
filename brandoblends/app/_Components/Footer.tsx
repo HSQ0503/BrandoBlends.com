@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import { FaInstagram, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaTiktok, FaFacebook } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
@@ -12,18 +13,27 @@ const Footer: React.FC = () => {
               Brando<span className="text-blue-500">Blends</span>
             </p>
             <div className="flex gap-4 pb-4">
-              <div className="text-xl cursor-pointer text-gray-400 hover:text-yellow-500">
+              <Link
+                target="_blank"
+                href="https://www.instagram.com/brandoblends/"
+                className="text-xl cursor-pointer text-gray-400 hover:text-red-500"
+              >
                 <FaInstagram />
-              </div>
-              <div className="text-xl cursor-pointer text-gray-400 hover:text-blue-500">
-                <FaTwitter />
-              </div>
-              <div className="text-xl cursor-pointer text-gray-400 hover:text-blue-500">
-                <FaLinkedin />
-              </div>
-              <div className="text-xl cursor-pointer text-gray-400 hover:text-red-500">
-                <FaYoutube />
-              </div>
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.tiktok.com/@brandoblends"
+                className="text-xl cursor-pointer text-gray-400 hover:text-blue-500"
+              >
+                <FaTiktok />
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.facebook.com/brandol.difo"
+                className="text-xl cursor-pointer text-gray-400 hover:text-blue-500"
+              >
+                <FaFacebook />
+              </Link>
             </div>
             {/* Location and Phone */}
             <div className="text-gray-400 text-sm mt-2">
@@ -81,13 +91,17 @@ const Footer: React.FC = () => {
           <ul>
             <p className="text-white font-bold text-lg pb-3">Quick Links</p>
             <li className="text-gray-400 text-sm pb-2 font-semibold hover:text-blue-500 cursor-pointer">
-              About
+              <Link href="#about" scroll={true}>
+                About
+              </Link>
             </li>
             <li className="text-gray-400 text-sm pb-2 font-semibold hover:text-blue-500 cursor-pointer">
               Services
             </li>
-            <li className="text-gray-400 text-sm pb-2 font-semibold hover:text-blue-500 cursor-pointer">
-              Gallery
+            <li  className="text-gray-400 text-sm pb-2 font-semibold hover:text-blue-500 cursor-pointer">
+              <Link href="/gallery" scroll={true}>
+                Gallery
+              </Link>
             </li>
             <li className="text-gray-400 text-sm pb-2 font-semibold hover:text-blue-500 cursor-pointer">
               Booking
