@@ -14,7 +14,7 @@ export const AboutSection = () => {
             a commitment to providing each client with a tailored, professional experience.
           </p>
           <p className="text-lg leading-relaxed text-gray-300 mb-6">
-            Whether you're looking for a clean cut, a stylish fade, or a bold new look, Brando's skill and dedication
+            Whether you&apos;re looking for a clean cut, a stylish fade, or a bold new look, Brando&apos;s skill and dedication
             will ensure you leave the chair looking your best. Experience style and confidence with every cut at
             Brando Blends.
           </p>
