@@ -2,7 +2,6 @@
 
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { FiMenu, FiArrowRight, FiX, FiChevronDown } from "react-icons/fi";
-import { FaUserCircle } from "react-icons/fa";
 import {
   useMotionValueEvent,
   AnimatePresence,
@@ -10,7 +9,6 @@ import {
   motion,
 } from "framer-motion";
 import useMeasure from "react-use-measure";
-import Image from "next/image";
 import MainLogo from "./Logo";
 
 export const Navbar = () => {
@@ -365,7 +363,7 @@ const MobileMenuLink = ({
             e.stopPropagation();
             setMenuOpen(false);
           }}
-          href="#"
+          href="/Services"
           className="flex w-full cursor-pointer items-center justify-between border-b border-neutral-300 py-6 text-start text-2xl font-semibold"
         >
           <span>{children}</span>
@@ -437,7 +435,7 @@ const MobileMenu = () => {
 const LINKS = [
   {
     text: "About",
-    href: "#",
+    href: "/About",
   },
   {
     text: "Services",
