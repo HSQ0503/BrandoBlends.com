@@ -70,3 +70,17 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.merriweather {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.source-sans-3 {
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
