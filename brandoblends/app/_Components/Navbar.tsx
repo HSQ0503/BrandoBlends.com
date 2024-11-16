@@ -1,14 +1,13 @@
 "use client";
 
-import React, { Dispatch, SetStateAction, useState } from "react";
-import { FiMenu, FiArrowRight, FiX, FiChevronDown } from "react-icons/fi";
+import React, { useState } from "react";
+import { FiMenu, FiX, } from "react-icons/fi";
 import {
   useMotionValueEvent,
   AnimatePresence,
   useScroll,
   motion,
 } from "framer-motion";
-import useMeasure from "react-use-measure";
 import MainLogo from "./Logo";
 
 export const Navbar = () => {
@@ -40,58 +39,6 @@ export const Navbar = () => {
   );
 };
 
-const Logo = ({ color = "white" }: { color?: string }) => {
-  return (
-    <MainLogo />
-  );
-};
-
-const NavLink = ({
-  children,
-  href,
-  FlyoutContent,
-}: {
-  children: React.ReactNode;
-  href: string;
-  FlyoutContent?: React.ElementType;
-}) => {
-  const [open, setOpen] = useState(false);
-
-  const showFlyout = FlyoutContent && open;
-
-  return (
-    <div
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      className="relative h-fit w-fit"
-    >
-      <a
-        href={href}
-        className="relative text-lg font-medium transition-colors hover:text-indigo-300"
-      >
-        {children}
-        <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-indigo-300 transition-transform duration-300 ease-out group-hover:scale-x-100" />
-      </a>
-      <AnimatePresence>
-        {showFlyout && (
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
-            style={{ translateX: "-50%" }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="absolute left-1/2 top-12 bg-white text-black"
-          >
-            <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
-            <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white" />
-            <FlyoutContent />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
 const CTAs = () => {
   return (
     <div className="flex items-center gap-3">
@@ -119,79 +66,6 @@ const CTAs = () => {
   );
 };
 
-
-const MobileMenuLink = ({
-  children,
-  href,
-  FoldContent,
-  setMenuOpen,
-}: {
-  children: React.ReactNode;
-  href: string;
-  FoldContent?: React.ElementType;
-  setMenuOpen: Dispatch<SetStateAction<boolean>>;
-}) => {
-  const [ref, { height }] = useMeasure();
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="relative text-neutral-950">
-      {FoldContent ? (
-        <div
-          className="flex w-full cursor-pointer items-center justify-between border-b border-neutral-300 py-6 text-start text-2xl font-semibold"
-          onClick={() => setOpen((pv) => !pv)}
-        >
-          <a
-            onClick={(e) => {
-              e.stopPropagation();
-              setMenuOpen(false);
-            }}
-            href={href}
-          >
-            {children}
-          </a>
-          <motion.div
-            animate={{ rotate: open ? "180deg" : "0deg" }}
-            transition={{
-              duration: 0.3,
-              ease: "easeOut",
-            }}
-          >
-            <FiChevronDown />
-          </motion.div>
-        </div>
-      ) : (
-        <a
-          onClick={(e) => {
-            e.stopPropagation();
-            setMenuOpen(false);
-          }}
-          href="/Services"
-          className="flex w-full cursor-pointer items-center justify-between border-b border-neutral-300 py-6 text-start text-2xl font-semibold"
-        >
-          <span>{children}</span>
-          <FiArrowRight />
-        </a>
-      )}
-      {FoldContent && (
-        <motion.div
-          initial={false}
-          animate={{
-            height: open ? height : "0px",
-            marginBottom: open ? "24px" : "0px",
-            marginTop: open ? "12px" : "0px",
-          }}
-          className="overflow-hidden"
-        >
-          <div ref={ref}>
-            <FoldContent />
-          </div>
-        </motion.div>
-      )}
-    </div>
-  );
-};
-
 const MobileMenu = () => {
   const [open, setOpen] = useState(false);
   return (
@@ -213,7 +87,7 @@ const MobileMenu = () => {
           >
             {/* Header Section */}
             <div className="flex items-center justify-between p-6 border-b border-neutral-700">
-              <Logo color="white" />
+              <MainLogo />
               <button
                 onClick={() => setOpen(false)}
                 className="text-3xl text-white hover:text-gray-300"

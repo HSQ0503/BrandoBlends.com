@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaInstagram, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
 
@@ -69,9 +70,9 @@ const Footer: React.FC = () => {
                     d="M3 10.25c0-.967.784-1.75 1.75-1.75h14.5c.967 0 1.75.783 1.75 1.75v9.5c0 .967-.783 1.75-1.75 1.75H4.75A1.75 1.75 0 0 1 3 19.75v-9.5ZM3 7V5.75A2.75 2.75 0 0 1 5.75 3h12.5A2.75 2.75 0 0 1 21 5.75V7M7.5 10h9"
                   />
                 </svg>
-                <a href="/" className="text-gray-300">
+                <Link href="/" className="text-gray-300">
                   (631) 290-8994
-                </a>
+                </Link>
               </p>
             </div>
           </ul>

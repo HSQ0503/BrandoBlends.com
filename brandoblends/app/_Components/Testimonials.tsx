@@ -15,7 +15,7 @@ export const TestimonialsSection: React.FC = () => {
     { name: "Robert P.", review: "He the goat fr", rating: 5 },
     { name: "Saif T.", review: "Blessed me up, coming back for sure!", rating: 5 },
     { name: "Michael N.", review: "Went once and just kept coming back, best barber hands down", rating: 5 },
-    { name: "Arlette G.", review: "He's great at what he does, he never fails to impress me with his work. Best barber out there!", rating: 5 },
+    { name: "Arlette G.", review: "He&apos;s great at what he does, he never fails to impress me with his work. Best barber out there!", rating: 5 },
     { name: "Gustavo Q.", review: "Cuts with passion and is very chill with everyone.", rating: 5 },
     { name: "Nicholas F.", review: "Best barber in Florida.", rating: 5 },
   ];
@@ -58,7 +58,7 @@ export const TestimonialsSection: React.FC = () => {
           {renderStars(testimonials[currentIndex].rating)}
 
           {/* Review */}
-          <p className="text-xl italic mb-6">"{testimonials[currentIndex].review}"</p>
+          <p className="text-xl italic mb-6">&quot;{testimonials[currentIndex].review}&quot;</p>
 
           {/* Name */}
           <p className="font-bold text-lg text-gray-300">- {testimonials[currentIndex].name}</p>
