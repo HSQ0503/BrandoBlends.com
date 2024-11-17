@@ -24,10 +24,7 @@ export const AboutSection = () => {
             About Brando Blends
           </h2>
           <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-            Brando is an expert barber with a decade of experience, crafting
-            precise and stylish looks for a confident you. Known for exceptional
-            attention to detail, Brando ensures every client leaves feeling
-            their best.
+            My name is Brandol I&apos;m a licensed barber working in Davenport, Florida. I&apos;m 21 and have been cutting hair since 2020. I started cutting hair because I wanted to be that barber that gave people exactly what they wanted. I have, and continue, to take the time and spend the money to further my education; not only in the art of cutting but also in self development. My main priority is to be as valuable as possible to my clients. 
           </p>
 
           {/* Location Information */}
