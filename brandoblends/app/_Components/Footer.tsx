@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaInstagram, } from "react-icons/fa";
 import { FaTiktok, FaFacebook } from "react-icons/fa";
 
 const Footer: React.FC = () => {
