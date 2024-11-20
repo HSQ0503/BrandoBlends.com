@@ -15,7 +15,7 @@ export const HeroSection = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-white merriweather font-[800] text-5xl sm:text-6xl md:text-6xl lg:text-4xl xl:text-[5rem] mb-2">
-          Bando's Gallery
+          Bando&apos;s Gallery
         </h1>
         <div className="flex items-center mt-4 mb-6">
           <span className="h-[1px] w-12 bg-white mr-3"></span>
