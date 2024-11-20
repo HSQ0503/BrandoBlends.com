@@ -4,7 +4,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { LuRefreshCw } from "react-icons/lu";
 
-const FlipCard: React.FC<{ item: any; index: number }> = ({ item, index }) => {
+type GalleryItem = {
+  before: string;
+  after: string;
+};
+
+const FlipCard: React.FC<{ item: GalleryItem; index: number }> = ({ item, index }) => {
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -31,7 +36,6 @@ const FlipCard: React.FC<{ item: any; index: number }> = ({ item, index }) => {
             <span className="absolute top-2 left-2 bg-black bg-opacity-70 text-white px-3 py-1 text-sm rounded-lg shadow-md">
               Before
             </span>
-            {/* Overlay with Flip Icon and Text for the First Card Only */}
             {!flipped && index === 0 && (
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
                 <LuRefreshCw className="h-12 w-12 mb-2" />
@@ -59,7 +63,7 @@ const FlipCard: React.FC<{ item: any; index: number }> = ({ item, index }) => {
 };
 
 const BeforeAfter: React.FC = () => {
-  const galleryItems = [
+  const galleryItems: GalleryItem[] = [
     {
       before: "/Images/gallery/IMG_9076 2.JPEG",
       after: "/Images/gallery/IMG_9077 2.JPEG",
