@@ -65,16 +65,16 @@ const FlipCard: React.FC<{ item: GalleryItem; index: number }> = ({ item, index 
 const BeforeAfter: React.FC = () => {
   const galleryItems: GalleryItem[] = [
     {
-      before: "/Images/gallery/IMG_9076 2.JPEG",
-      after: "/Images/gallery/IMG_9077 2.JPEG",
+      before: "/Images/galllery/IMG_9076 2.JPEG",
+      after: "/Images/galllery/IMG_9077 2.JPEG",
     },
     {
-      before: "/Images/gallery/IMG_9056 2.JPEG",
-      after: "/Images/gallery/IMG_9057 2.JPEG",
+      before: "/Images/galllery/IMG_9056 2.JPEG",
+      after: "/Images/galllery/IMG_9057 2.JPEG",
     },
     {
-      before: "/Images/gallery/IMG_9060 2.JPEG",
-      after: "/Images/gallery/IMG_9061 2.JPEG",
+      before: "/Images/galllery/IMG_9060 2.JPEG",
+      after: "/Images/galllery/IMG_9061 2.JPEG",
     },
   ];
 
