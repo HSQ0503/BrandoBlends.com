@@ -21,7 +21,7 @@ export const AboutSection = () => {
         {/* Text Section */}
         <div className="w-full md:w-1/2 lg:w-1/3">
           <h2 className="text-4xl font-bold mb-6 merriweather text-white">
-            About Brando Blends
+            BrandoBlends
           </h2>
           <p className="text-lg text-gray-300 mb-6 leading-relaxed">
             My name is Brandol I&apos;m a licensed barber working in Davenport, Florida. I&apos;m 21 and have been cutting hair since 2020. I started cutting hair because I wanted to be that barber that gave people exactly what they wanted. I have, and continue, to take the time and spend the money to further my education; not only in the art of cutting but also in self development. My main priority is to be as valuable as possible to my clients. 

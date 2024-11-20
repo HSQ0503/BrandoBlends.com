@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const HeroSection = () => {
   return (
@@ -14,7 +15,7 @@ export const HeroSection = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-white merriweather font-[800] text-5xl sm:text-6xl md:text-6xl lg:text-4xl xl:text-[5rem] mb-2">
-          Brando Blends
+          BrandoBlends
         </h1>
         <div className="flex items-center mt-4 mb-6">
           <span className="h-[1px] w-12 bg-white mr-3"></span>
@@ -23,9 +24,9 @@ export const HeroSection = () => {
           </p>
           <span className="h-[1px] w-12 bg-white ml-3"></span>
         </div>
-        <button className="border-2 border-blue-600 text-white font-bold px-6 py-3 uppercase tracking-wider hover:bg-blue-500 hover:text-white transition">
+        <Link href="/Booking" className="border-2 border-blue-600 text-white font-bold px-6 py-3 uppercase tracking-wider hover:bg-blue-500 hover:text-white transition">
           Make an Appointment
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ export const TestimonialsSection: React.FC = () => {
     { name: "Robert P.", review: "He the goat fr", rating: 5 },
     { name: "Saif T.", review: "Blessed me up, coming back for sure!", rating: 5 },
     { name: "Michael N.", review: "Went once and just kept coming back, best barber hands down", rating: 5 },
-    { name: "Arlette G.", review: "He&apos;s great at what he does, he never fails to impress me with his work. Best barber out there!", rating: 5 },
+    { name: "Arlette G.", review: "Hes great at what he does, he never fails to impress me with his work. Best barber out there!", rating: 5 },
     { name: "Gustavo Q.", review: "Cuts with passion and is very chill with everyone.", rating: 5 },
     { name: "Nicholas F.", review: "Best barber in Florida.", rating: 5 },
   ];

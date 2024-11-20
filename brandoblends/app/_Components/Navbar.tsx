@@ -1,15 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { FiMenu, FiX, } from "react-icons/fi";
-import {
-  useMotionValueEvent,
-  AnimatePresence,
-  useScroll,
-  motion,
-} from "framer-motion";
-import MainLogo from "./Logo";
+import { FiMenu, FiX } from "react-icons/fi";
+import { useMotionValueEvent, AnimatePresence, useScroll, motion } from "framer-motion";
+import { usePathname } from "next/navigation"; // Import usePathname
 import Link from "next/link";
+import MainLogo from "./Logo";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -41,34 +37,47 @@ export const Navbar = () => {
 };
 
 const CTAs = () => {
+  const pathname = usePathname(); // Get the current path
+
   return (
-    <Link href='/gallery' className="flex items-center gap-3">
-      <button className="flex items-center gap-2 border-2 border-white px-4 py-2 font-semibold text-white transition-colors hover:bg-white hover:text-black">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-6"
+    <div className="flex items-center gap-3">
+      {/* Only show the Gallery button if the current page is not /gallery */}
+      {pathname !== "/gallery" && (
+        <Link
+          href="/gallery"
+          className="flex items-center gap-2 border-2 border-white px-4 py-2 font-semibold text-white transition-colors hover:bg-white hover:text-black"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-          />
-        </svg>
-        <span>Gallery</span>
-      </button>
-      <button className=" border-2 border-[#000080] bg-[#000080] px-4 py-2 font-semibold text-white transition-colors hover:border-[#000000] hover:bg-[#000000] hover:text-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+            />
+          </svg>
+          <span>Gallery</span>
+        </Link>
+      )}
+      <Link
+        href="/Booking"
+        className=" border-2 border-[#000080] bg-[#000080] px-4 py-2 font-semibold text-white transition-colors hover:border-[#000000] hover:bg-[#000000] hover:text-white"
+      >
         Book Appointment
-      </button>
-    </Link>
+      </Link>
+    </div>
   );
 };
 
 const MobileMenu = () => {
+  const pathname = usePathname(); // Get the current path
   const [open, setOpen] = useState(false);
+
   return (
     <div className="block lg:hidden">
       {/* Hamburger Menu Icon */}
@@ -99,15 +108,18 @@ const MobileMenu = () => {
 
             {/* Menu Content */}
             <div className="flex flex-col items-center justify-center gap-8 flex-grow text-lg font-medium">
+              {/* Only show the Gallery link if the current page is not /gallery */}
+              {pathname !== "/gallery" && (
+                <a
+                  href="/gallery"
+                  className="px-4 py-2 text-white border-2 border-white rounded-md hover:bg-white hover:text-black transition"
+                  onClick={() => setOpen(false)}
+                >
+                  Gallery
+                </a>
+              )}
               <a
-                href="/gallery"
-                className="px-4 py-2 text-white border-2 border-white rounded-md hover:bg-white hover:text-black transition"
-                onClick={() => setOpen(false)}
-              >
-                Gallery
-              </a>
-              <a
-                href="/appointment"
+                href="/Booking"
                 className="px-4 py-2 bg-[#000080] text-white border-2 border-[#000080] rounded-md hover:bg-[#000000] hover:border-[#000000] transition"
                 onClick={() => setOpen(false)}
               >

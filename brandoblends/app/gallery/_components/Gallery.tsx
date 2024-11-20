@@ -1,71 +1,50 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 
 const GallerySection: React.FC = () => {
-  const galleryItems = [
-    {
-      before: "/Images/gallery/IMG_9076 2.JPEG",
-      after: "/Images/gallery/IMG_9077 2.JPEG",
-      description: "Classic fade transformation.",
-    },
-    {
-      before: "/Images/gallery/before2.jpg",
-      after: "/Images/gallery/after2.jpg",
-      description: "Beard trim and style upgrade.",
-    },
-    {
-      before: "/Images/gallery/before3.jpg",
-      after: "/Images/gallery/after3.jpg",
-      description: "Sharp haircut for a fresh look.",
-    },
+  const galleryImages = [
+    { src: "/Images/gallery/cut1.png", description: "Classic Fade with Beard Trim" },
+    { src: "/Images/gallery/cut2.png", description: "Modern Crop with Textured Top" },
+    { src: "/Images/gallery/cut3.png", description: "Skin Fade with Line-Up" },
+    { src: "/Images/gallery/cut4.png", description: "Curly Top with Mid Fade" },
+    { src: "/Images/gallery/cut5.png", description: "Pompadour with Tapered Sides" },
+    { src: "/Images/gallery/cut6.png", description: "Undercut with Slick Back" },
+    { src: "/Images/gallery/cut7.png", description: "Curly Top with Mid Fade" },
+    { src: "/Images/gallery/cut8.png", description: "Pompadour with Tapered Sides" },
+    { src: "/Images/gallery/cut9.png", description: "Undercut with Slick Back" },
   ];
 
   return (
-    <section
-      className="py-16 px-6 md:px-12 lg:px-24"
-      style={{
-        background: "linear-gradient(to bottom, #0d0d0d, #1a1a1a)",
-      }}
-    >
+    <section className="py-20 px-6 md:px-12 lg:px-24 bg-black">
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold mb-8 text-center text-white">
-          Before & After
+          Brando's Gallery
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {galleryItems.map((item, index) => (
-            <div key={index} className="flex flex-col items-center">
-              {/* Before Photo */}
-              <div className="relative w-full aspect-[3/4] mb-4">
-                <Image
-                  src={item.before}
-                  alt="Before"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg shadow-lg"
-                />
-                <span className="absolute top-2 left-2 bg-black bg-opacity-50 text-white px-3 py-1 text-sm rounded">
-                  Before
+        <p className="text-center text-white mb-12">
+          Check out Brando's amazing cuts for his clients. Each style is crafted
+          with precision and care!
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {galleryImages.map((image, index) => (
+            <div
+              key={index}
+              className="relative overflow-hidden rounded-lg shadow-lg group"
+            >
+              <Image
+                src={image.src}
+                alt={image.description}
+                layout="responsive"
+                width={400}
+                height={600}
+                className="transform transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span className="text-white text-lg font-semibold text-center px-4">
+                  {image.description}
                 </span>
               </div>
-
-              {/* After Photo */}
-              <div className="relative w-full aspect-[3/4]">
-                <Image
-                  src={item.after}
-                  alt="After"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg shadow-lg"
-                />
-                <span className="absolute top-2 left-2 bg-black bg-opacity-50 text-white px-3 py-1 text-sm rounded">
-                  After
-                </span>
-              </div>
-
-              {/* Description */}
-              <p className="text-center text-gray-300 mt-4">
-                {item.description}
-              </p>
             </div>
           ))}
         </div>
