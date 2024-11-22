@@ -9,7 +9,6 @@ type GalleryImage = {
 };
 
 const galleryImages: GalleryImage[] = [
-  { src: "/Images/gallery/cut1.png", description: "Classic Fade with Beard Trim" },
   { src: "/Images/gallery/cut2.png", description: "Modern Crop with Textured Top" },
   { src: "/Images/gallery/cut3.png", description: "Skin Fade with Line-Up" },
   { src: "/Images/gallery/cut4.png", description: "Curly Top with Mid Fade" },
@@ -35,7 +34,7 @@ const GallerySection: React.FC = () => {
           {galleryImages.map((image, index) => (
             <div
               key={index}
-              className="relative overflow-hidden rounded-lg shadow-lg group"
+              className="relative overflow-hidden rounded-lg shadow-lg"
             >
               <Image
                 src={image.src}
@@ -44,13 +43,10 @@ const GallerySection: React.FC = () => {
                 width={400}
                 height={600}
                 unoptimized
-                className="transform transition-transform duration-300 group-hover:scale-105"
+                // Removed hover effect classes
+                className=""
               />
-              <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white text-lg font-semibold text-center px-4">
-                  {image.description}
-                </span>
-              </div>
+              {/* Removed the overlay */}
             </div>
           ))}
         </div>

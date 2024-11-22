@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const FinalCTA: React.FC = () => {
   return (
@@ -19,9 +20,9 @@ const FinalCTA: React.FC = () => {
           Elevate Your Style
         </h1>
         <div className="w-12 h-[1px] bg-gold mx-auto mb-6"></div>
-        <button className="border-2 border-gold text-white font-bold px-8 py-3 uppercase tracking-wider hover:bg-white hover:text-black transition">
+        <Link href="/Booking" className="border-2 border-gold text-white font-bold px-8 py-3 uppercase tracking-wider hover:bg-white hover:text-black transition">
           Make an Appointment
-        </button>
+        </Link>
       </div>
     </div>
   );
